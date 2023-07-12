@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Components/Home.js';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
-import ProfilePage from './Components/ProfilePage.js';
-import Results from './Components/Results.js';
+import Navbar from './Components/Navbar/index.js';
+import Home from './Components/pages/Home.js';
+import About from './Components/pages/about.js';
 
 
 
@@ -11,13 +11,11 @@ class App extends Component {
   render(){
   return (
     <Router>
-      <div>
+      <Navbar />
         <Routes>
-          <Route exact path ="/" Component={Home}/>
-          <Route exact path ="/profilepage" Component={ProfilePage}/>
-          <Route exact path ="/results" Component={Results}/>
+          <Route path='/' element={<Home/>} exact/>
+          <Route path='/about' element={<About/>}/>
         </Routes>
-      </div>
     </Router>
   );
   }
